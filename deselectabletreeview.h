@@ -40,9 +40,9 @@ private:
   void mouseReleaseEvent(QMouseEvent *event) {
     DoubleClickHappened = false;
     // The timer is to distinguish between single and double click
-    QTime dieTime= QTime::currentTime().addMSecs(200);
+    QTime dieTime= QTime::currentTime().addMSecs(500);
     while (QTime::currentTime() < dieTime)
-        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 50);
     if (!DoubleClickHappened){
       QModelIndex item = indexAt(event->pos());
       bool selected = selectionModel()->isSelected(indexAt(event->pos()));
